@@ -1,15 +1,17 @@
 const {RichEmbed} = require("discord.js");
 const snekfetch = require("snekfetch");
+const settings = require('../settings.json');
 
 exports.run = async (client, message, args) => {
-const move = args.splice(0, args.length).join(" ")
+    const search = args.splice(0, args.length).join(" ")
 
-if(!move) return;
+    if(!search) return;
 
-const api = "http://104.236.56.178:80/pokemon/ability/"
-const token = "_t=jRzV0vSIRXHbHp0qzY6N"
+    const api = settings.api.url
+    const route = "/ability/"
+    const token = settings.api.token
 
-let apifull = api+move+token
+    let apifull = api+route+search+token
 
 snekfetch.get(apifull).then(r => {
     let body = r.body

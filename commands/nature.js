@@ -1,15 +1,17 @@
 const {RichEmbed} = require("discord.js");
 const snekfetch = require("snekfetch");
+const settings = require('../settings.json')
 
 exports.run = async (client, message, args) => {
-const move = args.splice(0, args.length).join(" ")
+    const search = args.splice(0, args.length).join(" ")
 
-if(!move) return;
-
-const api = "http://api.gamernationnetwork.xyz:81/private/nature/"
-const token = "?token=testToken"
-
-let apifull = api+move+token
+    if(!search) return;
+    
+    const api = settings.api.url
+    const route = "/nature/"
+    const token = settings.api.token
+    
+    let apifull = api+route+search+token
 
 snekfetch.get(apifull).then(r => {
     let body = r.body
