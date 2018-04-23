@@ -13,6 +13,7 @@ module.exports = message => {
     cmd = client.commands.get(client.aliases.get(command));
   }
   if (cmd) {
+    if (cmd.conf.enabled == false) return;
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
   }
