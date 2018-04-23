@@ -5,10 +5,10 @@ exports.run = async (client, message, args) => {
 const move = args.splice(0, args.length).join(" ")
 
 if(!move) return;
-if (messahe.channel.id !== "418037084494888960") return;
+//if (message.channel.id !== "418037084494888960") return;
 
-const api = "http://104.236.56.178:80/pokeone/quests/"
-const token = "_t=jRzV0vSIRXHbHp0qzY6N"
+const api = "http://api.gamernationnetwork.xyz:81/private/quests/"
+const token = "?token=testToken"
 
 let apifull = api+move+token
 

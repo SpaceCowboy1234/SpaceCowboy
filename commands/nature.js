@@ -6,8 +6,8 @@ const move = args.splice(0, args.length).join(" ")
 
 if(!move) return;
 
-const api = "http://104.236.56.178:80/pokemon/nature/"
-const token = "_t=jRzV0vSIRXHbHp0qzY6N"
+const api = "http://api.gamernationnetwork.xyz:81/private/nature/"
+const token = "?token=testToken"
 
 let apifull = api+move+token
 
@@ -15,8 +15,8 @@ snekfetch.get(apifull).then(r => {
     let body = r.body
 
     const embed = new RichEmbed()
-    .setTitle(`Nature: ${body.info.name}`)
-    .setDescription(`**Increase:** ${body.info.increase}\n**Decrease:** ${body.data.decrease}`)
+    .setTitle(`Nature: ${body.search}`)
+    .setDescription(`**Increase:** ${body.data.increase}\n**Decrease:** ${body.data.decrease}`)
 
     message.channel.send("", {
         embed: embed
@@ -28,7 +28,7 @@ snekfetch.get(apifull).then(r => {
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ["moves", "m"],
+    aliases: ["nature", "n"],
     permLevel: 0
 };
 

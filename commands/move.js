@@ -6,11 +6,14 @@ const move = args.splice(0, args.length).join(" ")
 
 if(!move) return;
 
+ var fullMove = move.replace(" ", "_")
+// const api = "http://104.236.56.178:80/pokemon/moves2/"
+// const token = "_t=jRzV0vSIRXHbHp0qzY6N"
 
-const api = "http://104.236.56.178:80/pokemon/moves2/"
-const token = "_t=jRzV0vSIRXHbHp0qzY6N"
+const api = "http://api.gamernationnetwork.xyz:81/private/moves/"
+const token = "?token=testToken"
 
-let apifull = api+move+token
+let apifull = api+fullMove+token
 
 snekfetch.get(apifull).then(r => {
     let body = r.body
