@@ -7,7 +7,7 @@ exports.run = (client, message, params) => {
     .addField(`x86`, `No Download Yet`)
     .addField(`x64`, `[Download](https://drive.google.com/open?id=1PKgU46_cssJTGY_xC4Kt0r9hjOZpMKXg)`)
     .addField(`Mac`, `No Download Yet`)
-    .addField(`linux`, `No Download Yet`)
+    .addField(`Linux`, `No Download Yet`)
     .addField(`Android`, `TBC`)
 
     message.channel.send("", {
