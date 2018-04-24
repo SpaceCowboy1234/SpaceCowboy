@@ -40,7 +40,7 @@ exports.run = (client, message, args) => {
         const embed = new discord.RichEmbed()
             .setTitle(`Poke: ${body.info.names.en} || #${body.info.national_id}`)
             .setColor(0x0000C8)
-            .addField("TM/HM List", array, true)
+            .addField("TM/HM List", `\u200b${array}`, true)
             .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
 
         message.channel.send("", {

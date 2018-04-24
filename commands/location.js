@@ -1,5 +1,6 @@
 const {RichEmbed} = require("discord.js");
 const snekfetch = require("snekfetch");
+const settings = require('../settings.json');
 
 exports.run = async (client, message, args) => {
 const search = args.splice(0, args.length).join(" ").toLowerCase()

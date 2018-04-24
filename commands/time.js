@@ -1,15 +1,14 @@
 const {RichEmbed} = require("discord.js");
 const snekfetch = require("snekfetch");
+const settings = require('../settings.json');
 
 exports.run = async (client, message, args) => {
+    
+    const api = settings.api.url
+    const route = "/timeevents"
+    const token = settings.api.token
 
-
-const api = "http://104.236.56.178:81/private/timeevents"
-//const api = "localhost:81/private/timeevents"
-const token = "?token=testToken"
-
-
-let apifull = api+token
+    let apifull = api+route+token
 
 snekfetch.get(apifull).then(r => {
     let body = r.body

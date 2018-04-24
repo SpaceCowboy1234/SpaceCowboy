@@ -1,4 +1,5 @@
 const {RichEmbed} = require("discord.js");
+const settings = require('../settings.json');
 exports.run = (client, message, args) => {
 
     //const search = args.splice(0, args.length).join(" ").toLowerCase()
