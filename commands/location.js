@@ -2,7 +2,7 @@ const {RichEmbed} = require("discord.js");
 const snekfetch = require("snekfetch");
 
 exports.run = async (client, message, args) => {
-const move = args.splice(0, args.length).join(" ")
+const move = args.splice(0, args.length).join(" ").toLowerCase()
 
 if(!move) return;
 
