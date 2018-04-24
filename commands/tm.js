@@ -30,17 +30,21 @@ exports.run = (client, message, args) => {
             }
         }
 
-        const array = new Array();
+        var array = new Array();
         for (let index = 0; index < body.info.move_learnsets[number].learnset.length; index++) {
             if(body.info.move_learnsets[number].learnset[index].tm != null){
                 array[index] = body.info.move_learnsets[number].learnset[index].tm + " - " + body.info.move_learnsets[number].learnset[index].move;
             }
         }
 
+        if (array.length == 0) {
+            var array = "None"
+        }
+
         const embed = new discord.RichEmbed()
             .setTitle(`Poke: ${body.info.names.en} || #${body.info.national_id}`)
             .setColor(0x0000C8)
-            .addField("TM/HM List", `\u200b${array}`, true)
+            .addField("TM/HM List", array, true)
             .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
 
         message.channel.send("", {
