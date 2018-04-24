@@ -66,36 +66,36 @@ exports.run = (client, message, args) => {
     return message.channel.send("Your Special Defense IVs Must be a number!")
   }
             
-
-if (HPIV == 1 || HPIV == 3 || HPIV == 5 || HPIV == 7 || HPIV == 9 || HPIV == 11 || HPIV == 13|| HPIV == 15 || HPIV == 17 || HPIV == 19 || HPIV == 21 || HPIV == 23 || HPIV ==  25 || HPIV == 27 || HPIV == 29 || HPIV ==  31) {
-    var HPIV = 1
-} else {
+//Checks if IVs are even numbers for HP
+if (HPIV % 2 == 0) {
     var HPIV = 0
-}
-if (AttackIV == 1 || AttackIV == 3 || AttackIV == 5 || AttackIV == 7 || AttackIV == 9 || AttackIV == 11 || AttackIV == 13|| AttackIV == 15 || AttackIV == 17 || AttackIV == 19 || AttackIV == 21 || AttackIV == 23 || AttackIV ==  25 || AttackIV == 27 || AttackIV == 29 || AttackIV ==  31) {
-    var AttackIV = 1
 } else {
+    var HPIV = 1
+}
+if (AttackIV % 2 == 0) {
     var AttackIV = 0
-}
-if (DefenseIV == 1 || DefenseIV == 3 || DefenseIV == 5 || DefenseIV == 7 || DefenseIV == 9 || DefenseIV == 11 || DefenseIV == 13|| DefenseIV == 15 || DefenseIV == 17 || DefenseIV == 19 || DefenseIV == 21 || DefenseIV == 23 || DefenseIV ==  25 || DefenseIV == 27 || DefenseIV == 29 || DefenseIV ==  31) {
-    var DefenseIV = 1
 } else {
+    var AttackIV = 1
+}
+if (DefenseIV % 2 == 0) {
     var DefenseIV = 0
-}
-if (SpeedIV == 1 || SpeedIV == 3 || SpeedIV == 5 || SpeedIV == 7 || SpeedIV == 9 || SpeedIV == 11 || SpeedIV == 13|| SpeedIV == 15 || SpeedIV == 17 || SpeedIV == 19 || SpeedIV == 21 || SpeedIV == 23 || SpeedIV ==  25 || SpeedIV == 27 || SpeedIV == 29 || SpeedIV ==  31) {
-    var SpeedIV = 1
 } else {
+    var DefenseIV = 1
+}
+if (SpeedIV % 2 == 0) {
     var SpeedIV = 0
-}
-if (SpAtkIV == 1 || SpAtkIV == 3 || SpAtkIV == 5 || SpAtkIV == 7 || SpAtkIV == 9 || SpAtkIV == 11 || SpAtkIV == 13|| SpAtkIV == 15 || SpAtkIV == 17 || SpAtkIV == 19 || SpAtkIV == 21 || SpAtkIV == 23 || SpAtkIV ==  25 || SpAtkIV == 27 || SpAtkIV == 29 || SpAtkIV ==  31) {
-    var SpAtkIV = 1
 } else {
+    var SpeedIV = 1
+}
+if (SpAtkIV % 2 == 0) {
     var SpAtkIV = 0
-}
-if (SpDefIV == 1 || SpDefIV == 3 || SpDefIV == 5 || SpDefIV == 7 || SpDefIV == 9 || SpDefIV == 11 || SpDefIV == 13|| SpDefIV == 15 || SpDefIV == 17 || SpDefIV == 19 || SpDefIV == 21 || SpDefIV == 23 || SpDefIV ==  25 || SpDefIV == 27 || SpDefIV == 29 || SpDefIV ==  31) {
-    var SpDefIV = 1
 } else {
+    var SpAtkIV = 1
+}
+if (SpDefIV % 2 == 0) {
     var SpDefIV = 0
+} else {
+    var SpDefIV = 1
 }
 
 var tota = Math.floor(((HPIV + (2 * AttackIV) + (4 * DefenseIV) + (8 * SpeedIV) + (16 * SpAtkIV) + (32 * SpDefIV)) * 15) / 63)
