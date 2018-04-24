@@ -6,6 +6,7 @@ exports.run = async (client, message, args) => {
 
     if(!search) return;
 
+    
     const api = settings.api.url
     const route = "/quest/"
     const token = settings.api.token
@@ -14,6 +15,10 @@ exports.run = async (client, message, args) => {
 
 snekfetch.get(apifull).then(r => {
     let body = r.body
+
+    if (body.status == "404") {
+        return;
+    }
 
     if(body.data.type == "quest") {
         const locSearch = new RichEmbed()

@@ -7,6 +7,7 @@ exports.run = async (client, message, args) => {
 
     if(!search) return;
     
+
     const api = settings.api.url
     const route = "/nature/"
     const token = settings.api.token
@@ -15,6 +16,10 @@ exports.run = async (client, message, args) => {
 
 snekfetch.get(apifull).then(r => {
     let body = r.body
+
+    if (body.status == "404") {
+        return;
+    }
 
     const embed = new RichEmbed()
     .setTitle(`Nature: ${body.data.name}`)

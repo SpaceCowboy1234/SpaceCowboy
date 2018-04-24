@@ -6,9 +6,6 @@ const search = args.splice(0, args.length).join(" ").toLowerCase()
 
 if(!search) return;
 
-
-
-
     const embed = new RichEmbed()
     .setTitle(`{Region} || {Location}`)
     .addField(`Spawns`, `{spawnList}`, true)

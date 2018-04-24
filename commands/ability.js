@@ -4,7 +4,7 @@ const settings = require('../settings.json');
 
 exports.run = async (client, message, args) => {
     const search = args.splice(0, args.length).join(" ").toLowerCase()
-
+    
     if(!search) return;
 
     const api = settings.api.url
@@ -15,6 +15,10 @@ exports.run = async (client, message, args) => {
 
 snekfetch.get(apifull).then(r => {
     let body = r.body
+
+    if (body.status == "404") {
+        return;
+    }
 
     const embed = new RichEmbed()
     .setTitle(`Ability: ${body.info.name}`)
