@@ -66,36 +66,36 @@ exports.run = (client, message, args) => {
     return message.channel.send("Your Special Defense IVs Must be a number!")
   }
             
-
-if (HPIV >= 1 && HPIV <= 31) {
-    var HPIV = 1
-} else {
+//Checks if IVs are even numbers for HP
+if (HPIV % 2 == 0) {
     var HPIV = 0
-}
-if (AttackIV >= 1 && AttackIV <= 31) {
-    var AttackIV = 1
 } else {
+    var HPIV = 1
+}
+if (AttackIV % 2 == 0) {
     var AttackIV = 0
-}
-if (DefenseIV >= 1 && DefenseIV <= 31) {
-    var DefenseIV = 1
 } else {
+    var AttackIV = 1
+}
+if (DefenseIV  % 2 == 0) {
     var DefenseIV = 0
-}
-if (SpeedIV >= 1 && SpeedIV <= 31) {
-    var SpeedIV = 1
 } else {
+    var DefenseIV = 1
+}
+if (SpeedIV % 2 == 0) {
     var SpeedIV = 0
-}
-if (SpAtkIV >= 1 && SpAtkIV <=  31) {
-    var SpAtkIV = 1
 } else {
+    var SpeedIV = 1
+}
+if (SpAtkIV % 2 == 0) {
     var SpAtkIV = 0
-}
-if (SpDefIV >= 1 && SpDefIV <= 31) {
-    var SpDefIV = 1
 } else {
+    var SpAtkIV = 1
+}
+if (SpDefIV % 2 == 0) {
     var SpDefIV = 0
+} else {
+    var SpDefIV = 1
 }
 
 var tota = Math.floor(((HPIV + (2 * AttackIV) + (4 * DefenseIV) + (8 * SpeedIV) + (16 * SpAtkIV) + (32 * SpDefIV)) * 15) / 63)
