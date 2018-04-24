@@ -7,7 +7,7 @@ exports.run = (client, message, params) => {
     .setColor('RANDOM')
     .setDescription(`
 📂 x86 [No Download]()
-📂 x64 [Download]()
+📂 x64 [Download](https://drive.google.com/open?id=1PKgU46_cssJTGY_xC4Kt0r9hjOZpMKXg)
 📂 Mac: [No Download]()
 📂 Linux: [No Download]()
 📂 Android: [TBC]()

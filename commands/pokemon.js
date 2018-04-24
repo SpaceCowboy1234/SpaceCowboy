@@ -1,6 +1,6 @@
 const {RichEmbed} = require("discord.js");
 const snekfetch = require("snekfetch");
-
+const settings = require('../settings.json');
 exports.run = async (client, message, args) => {
     const search = args.splice(0, args.length).join(" ").toLowerCase()
 
@@ -28,7 +28,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}`, true)
             .addField("Evolutions", `\u200b**None**`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -41,7 +41,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -54,7 +54,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -67,7 +67,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -80,7 +80,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -93,7 +93,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}, ${body.info.evolutions[4].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -106,7 +106,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}, ${body.info.evolutions[4].to}, ${body.info.evolutions[5].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -119,7 +119,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}, ${body.info.evolutions[4].to}, ${body.info.evolutions[5].to}, ${body.info.evolutions[6].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -132,7 +132,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}, ${body.info.evolutions[4].to}, ${body.info.evolutions[5].to}, ${body.info.evolutions[6].to}, ${body.info.evolutions[7].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -149,7 +149,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name} [H]`, true)
             .addField("Evolutions", `\u200b**None**`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -162,7 +162,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -175,7 +175,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -188,7 +188,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -201,7 +201,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -214,7 +214,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}, ${body.info.evolutions[4].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -227,7 +227,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}, ${body.info.evolutions[4].to}, ${body.info.evolutions[5].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -240,7 +240,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}, ${body.info.evolutions[4].to}, ${body.info.evolutions[5].to}, ${body.info.evolutions[6].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -253,7 +253,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}, ${body.info.evolutions[4].to}, ${body.info.evolutions[5].to}, ${body.info.evolutions[6].to}, ${body.info.evolutions[7].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -269,7 +269,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name}, ${body.info.abilities[2].name} [H]`, true)
             .addField("Evolutions", `\u200b**None**`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -282,7 +282,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name}, ${body.info.abilities[2].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -295,7 +295,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name}, ${body.info.abilities[2].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -308,7 +308,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name}, ${body.info.abilities[2].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -321,7 +321,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name}, ${body.info.abilities[2].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -334,7 +334,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name}, ${body.info.abilities[2].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}, ${body.info.evolutions[4].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -347,7 +347,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name}, ${body.info.abilities[2].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}, ${body.info.evolutions[4].to}, ${body.info.evolutions[5].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -360,7 +360,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name}, ${body.info.abilities[2].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}, ${body.info.evolutions[4].to}, ${body.info.evolutions[5].to}, ${body.info.evolutions[6].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
@@ -373,7 +373,7 @@ snekfetch.get(apifull).then(r => {
             .addField("General", `**Types:** ${body.info.types.join(', ')}\n**Abilities:** ${body.info.abilities[0].name}, ${body.info.abilities[1].name}, ${body.info.abilities[2].name} [H]`, true)
             .addField("Evolutions", `\u200b${body.info.evolutions[0].to}, ${body.info.evolutions[1].to}, ${body.info.evolutions[2].to}, ${body.info.evolutions[3].to}, ${body.info.evolutions[4].to}, ${body.info.evolutions[5].to}, ${body.info.evolutions[6].to}, ${body.info.evolutions[7].to}`, true)
             .addField("Stats", `HP: ${body.info.base_stats.hp}, ATK: ${body.info.base_stats.atk}, DEF: ${body.info.base_stats.def}, SPA: ${body.info.base_stats.sp_atk}, SPD: ${body.info.base_stats.sp_def}, SPE: ${body.info.base_stats.speed}`,true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz:80/pics/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
         
             message.channel.send("", {
                 embed: embed
