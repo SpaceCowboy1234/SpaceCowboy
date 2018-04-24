@@ -2,15 +2,15 @@ const {RichEmbed} = require("discord.js");
 const snekfetch = require("snekfetch");
 
 exports.run = async (client, message, args) => {
-const move = args.splice(0, args.length).join(" ")
+    const search = args.splice(0, args.length).join(" ")
 
-if(!move) return;
-//if (message.channel.id !== "418037084494888960") return;
+    if(!search) return;
 
-const api = "http://api.gamernationnetwork.xyz:81/private/quests/"
-const token = "?token=testToken"
+    const api = settings.api.url
+    const route = "/quest/"
+    const token = settings.api.token
 
-let apifull = api+move+token
+    let apifull = api+route+search+token
 
 snekfetch.get(apifull).then(r => {
     let body = r.body

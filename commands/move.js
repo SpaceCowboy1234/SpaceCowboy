@@ -2,18 +2,15 @@ const {RichEmbed} = require("discord.js");
 const snekfetch = require("snekfetch");
 
 exports.run = async (client, message, args) => {
-const move = args.splice(0, args.length).join(" ")
+    const search = args.splice(0, args.length).join(" ")
 
-if(!move) return;
+    if(!search) return;
 
- var fullMove = move.replace(" ", "_")
-// const api = "http://104.236.56.178:80/pokemon/moves2/"
-// const token = "_t=jRzV0vSIRXHbHp0qzY6N"
+    const api = settings.api.url
+    const route = "/move/"
+    const token = settings.api.token
 
-const api = "http://api.gamernationnetwork.xyz:81/private/moves/"
-const token = "?token=testToken"
-
-let apifull = api+fullMove+token
+    let apifull = api+route+search+token
 
 snekfetch.get(apifull).then(r => {
     let body = r.body

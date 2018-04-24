@@ -17,7 +17,7 @@ snekfetch.get(apifull).then(r => {
     let body = r.body
 
     const embed = new RichEmbed()
-    .setTitle(`Nature: ${body.search}`)
+    .setTitle(`Nature: ${body.data.name}`)
     .setDescription(`**Increase:** ${body.data.increase}\n**Decrease:** ${body.data.decrease}`)
 
     message.channel.send("", {
