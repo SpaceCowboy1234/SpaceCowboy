@@ -77,7 +77,7 @@ if (AttackIV % 2 == 0) {
 } else {
     var AttackIV = 1
 }
-if (DefenseIV  % 2 == 0) {
+if (DefenseIV % 2 == 0) {
     var DefenseIV = 0
 } else {
     var DefenseIV = 1
