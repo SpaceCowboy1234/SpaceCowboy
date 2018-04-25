@@ -34,7 +34,7 @@ snekfetch.get(apifull).then(r => {
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: [],
+    aliases: ["a"],
     permLevel: 0
 };
 

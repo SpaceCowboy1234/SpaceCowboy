@@ -9,42 +9,8 @@ exports.run = (client, message, args) => {
   var SpDefIV = message.content.split(' ').slice(5).shift();
   var SpeedIV = message.content.split(' ').slice(6).shift();
 
-  if(HPIV > 31) {
-    return message.channel.send("Your HP IVs are too high")
-  }
-  if(AttackIV > 31) {
-    return message.channel.send("Your Attack IVs are too high")
-  }
-  if(DefenseIV > 31) {
-    return message.channel.send("Your Defense IVs are too high")
-  }
-  if(SpeedIV > 31) {
-    return message.channel.send("Your Speed IVs are too high")
-  }
-  if(SpAtkIV > 31) {
-    return message.channel.send("Your Special Attack IVs are too high")
-  }
-  if(SpDefIV > 31) {
-    return message.channel.send("Your Special Defence IVs are too high")
-  }
-
-  if(HPIV < 1) {
-    return message.channel.send("Your HP IVs are too low")
-  }
-  if(AttackIV < 1) {
-    return message.channel.send("Your Attack IVs are too low")
-  }
-  if(DefenseIV < 1) {
-    return message.channel.send("Your Defense IVs are too low")
-  }
-  if(SpeedIV < 1) {
-    return message.channel.send("Your Speed IVs are too low")
-  }
-  if(SpAtkIV < 1) {
-    return message.channel.send("Your Special Attack IVs are too low")
-  }
-  if(SpDefIV < 1) {
-    return message.channel.send("Your Special Defence IVs are too low")
+  if(HPIV > 31 || AttackIV > 31 || DefenseIV > 31 || SpeedIV > 31 || SpAtkIV > 31 || SpDefIV > 31) {
+    return message.channel.send("One or More of your IV's are too high, please re-check your IV's")
   }
 
   if(isNaN(HPIV)) {

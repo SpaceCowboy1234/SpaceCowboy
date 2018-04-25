@@ -21,26 +21,25 @@ exports.run = (client, message, args) => {
             return;
         }
 
-        const number = 0;
+        let number = 0;
 
+        //changed to Gen 6 TM list as P1 uses Gen 6 not Gen 7
         for (let index = 0; index < 16; index++) {
-            if(body.info.move_learnsets[index].games[0] == "Ultra Sun"){
-                const number = index;
+            if (body.info.move_learnsets[index].games[0] == "Omega Ruby") {
+                number = index;
                 break;
             }
         }
 
         var array = new Array();
         for (let index = 0; index < body.info.move_learnsets[number].learnset.length; index++) {
-            if(body.info.move_learnsets[number].learnset[index].tm != null){
+            if (body.info.move_learnsets[number].learnset[index].tm != null) {
                 array[index] = body.info.move_learnsets[number].learnset[index].tm + " - " + body.info.move_learnsets[number].learnset[index].move;
             }
         }
-
         if (array.length == 0) {
-            var array = "None"
+            var array = "This Pokemon cannot learn any TMs or HMs"
         }
-
         const embed = new discord.RichEmbed()
             .setTitle(`Poke: ${body.info.names.en} || #${body.info.national_id}`)
             .setColor(0x0000C8)
@@ -64,6 +63,6 @@ exports.conf =
 exports.help = {
     name: 'tm',
     description: `List the available TMs and Hms that can be learnt by said Pokemon`,
-    usage: 'tm [pokemon]'
+    usage: 'tm'
 
 };

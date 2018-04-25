@@ -23,7 +23,7 @@ if(!search) return;
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: [],
+    aliases: ["loc"],
     permLevel: 0
 };
 

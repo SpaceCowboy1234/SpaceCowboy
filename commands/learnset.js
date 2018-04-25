@@ -8,7 +8,6 @@ exports.run = (client, message, args) => {
 
     if (!search) return;
 
-
     const api = settings.api.url
     const route = "/pokemon/"
     const token = settings.api.token
@@ -16,32 +15,30 @@ exports.run = (client, message, args) => {
     let apifull = api + route + search + token
 
     snekfetch.get(apifull).then(r => {
-        var body = r.body
-
-        
+        let body = r.body
 
         if (body.status == "404") {
             return;
         }
 
-        const number = 0;
+        let number = 0;
 
         for (let index = 0; index < 16; index++) {
-            if(body.info.move_learnsets[index].games[0] == "Ultra Sun"){
-                const number = index;
+            if (body.info.move_learnsets[index].games[0] == "Ultra Sun") {
+                number = index;
                 break;
             }
         }
 
         var array = new Array();
         for (let index = 0; index < body.info.move_learnsets[number].learnset.length; index++) {
-            if(body.info.move_learnsets[number].learnset[index].level != null){
+            if (body.info.move_learnsets[number].learnset[index].level != null) {
+
                 array[index] = "Lvl." + body.info.move_learnsets[number].learnset[index].level + " - " + body.info.move_learnsets[number].learnset[index].move;
             }
         }
-
         if (array.length == 0) {
-            var array = "None"
+            var array = "API error"
         }
 
         const embed = new discord.RichEmbed()
