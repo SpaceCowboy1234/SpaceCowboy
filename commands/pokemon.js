@@ -44,13 +44,21 @@ exports.run = async (client, message, args) => {
                 //Does it need an item to be used on it?
                 const item = body.info.evolutions[index].item;
                 if (item != null) {
-                    evo = evo + " using a " + item;
+                    if (/[aeiouAEIOU]/.test(item.charAt(0))) {
+                        evo = evo + " using an " + item;
+                    } else {
+                        evo = evo + " using a " + item;
+                    }
                 }
 
                 //Does it need to hold an item?
                 const holdItem = body.info.evolutions[index].hold_item;
                 if (holdItem != null) {
-                    evo = evo + " whilst holding a " + holdItem;
+                    if (/[aeiouAEIOU]/.test(holdItem.charAt(0))) {
+                        evo = evo + " whilst holding an " + holdItem;
+                    } else {
+                        evo = evo + " whilst holding a " + holdItem;
+                    }
                 }
 
                 //What minimum level does it need?
@@ -110,22 +118,30 @@ exports.run = async (client, message, args) => {
 
         const stats = new Array();
 
-        stats[0] = `**HP:** ` + body.info.base_stats.hp;
-        stats[1] = `**ATK:** ` + body.info.base_stats.atk;
-        stats[2] = `**DEF:** ` + body.info.base_stats.def;
-        stats[3] = `**SPATK:** ` + body.info.base_stats.sp_atk;
-        stats[4] = `**SPDEF:** ` + body.info.base_stats.sp_def;
-        stats[5] = `**SPEED:** ` + body.info.base_stats.speed;
+        stats[0] = `HP: ` + body.info.base_stats.hp;
+        stats[1] = `ATK: ` + body.info.base_stats.atk;
+        stats[2] = `DEF: ` + body.info.base_stats.def;
+        stats[3] = `SPATK: ` + body.info.base_stats.sp_atk;
+        stats[4] = `SPDEF: ` + body.info.base_stats.sp_def;
+        stats[5] = `SPEED: ` + body.info.base_stats.speed;
+
+        const evTemp = new Array();
+        evTemp[0] = `HP: ` + body.info.ev_yield.hp;
+        evTemp[1] = `ATK: ` + body.info.ev_yield.atk;
+        evTemp[2] = `DEF: ` + body.info.ev_yield.def;
+        evTemp[3] = `SPATK: ` + body.info.ev_yield.sp_atk;
+        evTemp[4] = `SPDEF: ` + body.info.ev_yield.sp_def;
+        evTemp[5] = `SPEED: ` + body.info.ev_yield.speed;
 
 
         const embed = new RichEmbed()
             .setTitle(`#${body.info.national_id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
             .setColor(0x0000C8)
-            .addField(`**Base Stats:**`, stats, true)
-            .addField(`**Ability**`, abilities , true)
-            .addBlankField()
-            .addField("**Evolves From:**", prevolution, true)
-            .addField("**Evolves Into:**", evolutions, false)
+            .addField(`__Base Stats:__`, stats, true)
+            .addField("__EV Yield:__", evTemp, true)
+            .addField(`__Ability:__`, abilities, false)
+            .addField("__Evolves From:__", prevolution, false)
+            .addField("__Evolves Into:__", evolutions, true)
             .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
 
         message.channel.send("", {

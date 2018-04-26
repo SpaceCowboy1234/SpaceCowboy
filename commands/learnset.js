@@ -42,7 +42,7 @@ exports.run = (client, message, args) => {
         }
 
         const embed = new discord.RichEmbed()
-            .setTitle(`Poke: ${body.info.names.en} || #${body.info.national_id}`)
+            .setTitle(`#${body.info.national_id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
             .setColor(0x0000C8)
             .addField("Levelling Learnset List", array, true)
             .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
