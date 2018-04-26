@@ -29,6 +29,6 @@ exports.conf = {
 
 exports.help = {
     name: "location",
-    description: "Information on given location",
-    usage: "location [location]"
+    description: "Give information on given location",
+    usage: "location [location name]"
 };

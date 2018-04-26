@@ -41,6 +41,6 @@ exports.conf = {
 
 exports.help = {
     name: "nature",
-    description: "Information on given nature",
+    description: "Gives information on given nature",
     usage: "nature [nature]"
 };

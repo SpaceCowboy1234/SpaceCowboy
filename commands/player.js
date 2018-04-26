@@ -47,6 +47,6 @@ exports.conf = {
 
 exports.help = {
   name: 'player',
-  description: 'Displays players information',
-  usage: 'player [playerName]'
+  description: `Displays a player's information`,
+  usage: `player [player's name]`
 };

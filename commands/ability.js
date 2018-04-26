@@ -40,6 +40,6 @@ exports.conf = {
 
 exports.help = {
     name: "ability",
-    description: "Information on given ability",
-    usage: "ability [ability]"
+    description: "Gives information on given ability",
+    usage: "ability [ability name]"
 };

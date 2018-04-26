@@ -63,6 +63,6 @@ exports.conf = {
 
 exports.help = {
     name: "quest",
-    description: "Information on given quest/region",
-    usage: "quest [quest/region]"
+    description: "Gives information on given quest/lists quests in given region",
+    usage: "quest [quest name/region]"
 };

@@ -159,6 +159,6 @@ exports.conf = {
 
 exports.help = {
     name: "pokemon",
-    description: "Information on given pokemon",
-    usage: "pokemon [Pokemon]"
+    description: "Gives information on given pokemon",
+    usage: "pokemon [pokemon name]"
 };

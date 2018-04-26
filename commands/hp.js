@@ -238,6 +238,6 @@ exports.conf = {
 
 exports.help = {
   name: 'hp',
-  description: 'Gives you your Hidden Power type ',
+  description: 'Gives you Hidden Power type depending on the IVs that are givemn',
   usage: 'hp [HP ATK DEF SPATK SPDEF SPEED]'
 };

@@ -8,7 +8,7 @@ exports.run = (client, message, params) => {
     let command = params[0];
     if (client.commands.has(command)) {
       command = client.commands.get(command);
-      message.channel.send(`= ${command.help.name} = \n${command.help.description}\nusage::${command.help.usage}`, {code:'asciidoc'});
+      message.channel.send(`= ${command.help.name} = \n${command.help.description}\nUsage: ` + settings.prefix + `${command.help.usage}`, {code:'asciidoc'});
     }
   }
 };
@@ -22,6 +22,6 @@ exports.conf = {
 
 exports.help = {
   name: 'help',
-  description: 'Displays all the available commands',
+  description: 'Displays all the available commands and more info on single commands',
   usage: 'help [command]'
 };

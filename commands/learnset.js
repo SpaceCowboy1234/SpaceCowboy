@@ -63,7 +63,7 @@ exports.conf =
 
 exports.help = {
     name: 'learnset',
-    description: `List moves that can be learnt by said Pokemon by level`,
-    usage: 'learnset'
+    description: `Lists moves that can be learnt by given Pokemon by level`,
+    usage: 'learnset [pokemon name]'
 
 };

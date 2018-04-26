@@ -35,6 +35,6 @@ exports.conf = {
 
 exports.help = {
     name: "time",
-    description: "Time events happen",
+    description: "Gives information on when timed events begin and end",
     usage: "time"
 };

@@ -43,6 +43,6 @@ exports.conf = {
 
 exports.help = {
     name: "move",
-    description: "Information on given move",
-    usage: "move [move]"
+    description: "Gives information on given move",
+    usage: "move [move name]"
 };

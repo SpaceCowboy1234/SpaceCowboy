@@ -83,7 +83,7 @@ exports.conf =
 
 exports.help = {
     name: 'tm',
-    description: `List the available TMs and Hms that can be learnt by said Pokemon`,
-    usage: 'tm'
+    description: `Lists the available TMs and HMs that can be learnt by given Pokemon`,
+    usage: 'tm [pokemon name]'
 
 };
