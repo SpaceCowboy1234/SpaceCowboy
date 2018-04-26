@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
 
 
     const api = settings.api.url
-    const route = "/move/"
+    const route = "/moves/"
     const token = settings.api.token
 
     let apifull = api+route+search+token
@@ -22,9 +22,10 @@ snekfetch.get(apifull).then(r => {
     }
 
     const embed = new RichEmbed()
-    .setTitle(`Move: ${body.info.names.en}`)
+    .setTitle(body.info.names.en)
     .setDescription(`${body.info.descriptions.en}`)
-    .addField("Stats", `**PP:** ${body.info.pp}/${body.info.max_pp}\n**Power:** ${body.info.power}\n**Accuracy:** ${body.info.accuracy}`)
+    .addField("Stats", `**PP:** ${body.info.pp} (MAX: ${body.info.max_pp})\n**Base Power:** ${body.info.power}\n**Accuracy:** ${body.info.accuracy}`, true)
+    .addField("\u200b", "**Type: **" + body.info.type + "\n**Category:** " + body.info.category.charAt(0).toUpperCase() + body.info.category.slice(1) + "\n**Critical:** " + body.info.critical_hit, true)
 
     message.channel.send("", {
         embed: embed
