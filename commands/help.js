@@ -8,9 +8,15 @@ exports.run = (client, message, params) => {
     let command = params[0];
     if (client.commands.has(command)) {
       command = client.commands.get(command);
-      message.channel.send(`= Command: ${command.help.name} = \n${command.help.description}\nUsage: ` + settings.prefix + `${command.help.usage}`, {code:'asciidoc'});
+      var aliases = new Array();
+      if(!command.conf.aliases[0]){
+        aliases = "None";
+      }else {
+          aliases =  command.conf.aliases.join(", ");
+      }
+      message.channel.send(`= Command: ${command.help.name} = \n${command.help.description}\nUsage: ` + settings.prefix + `${command.help.usage}` + '\nAlternatives: ' + aliases, {code:'asciidoc'});
     } else {
-      message.channel.send(`Command: ${args[0]} not found. Please double check spelling!`);
+      message.channel.send(`Command: ${params[0]} not found. Please double check spelling!`);
     }
   }
 };
