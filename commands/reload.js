@@ -1,4 +1,15 @@
 exports.run = (client, message, args) => {
+    if(args == "all"){
+      const commandNames = Array.from(client.commands.keys());
+      message.channel.send(`Reloading all commands...`).then(m => {
+        for (let index = 0; index < commandNames.length; index++) {
+          client.reload(commandNames[index])
+        }
+        m.edit("Successfully reloaded all commands!");
+      })
+      return;
+    }
+
     let command;
     if (client.commands.has(args[0])) {
       command = args[0];
