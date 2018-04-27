@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
         return;
     }
     const search = args.splice(0, args.length).join(" ").toLowerCase()
-  
+
     const api = settings.api.url
     const route = "/pokemon/"
     const token = settings.api.token
@@ -33,39 +33,58 @@ exports.run = (client, message, args) => {
             }
         }
 
-        //very messy now, but splits into 2 columns
-        var array = new Array();
-        var tmCount = 0;
-        var failCount = 0;
+        var tmList = new Array();
+
+        const hms = new Array();
+        hms[0] = "HM08 - Rock Climb";
+        hms[1] = "HM09 - Flash";
+        hms[2] = "HM10 - Defog";
+        hms[3] = "HM11 - Whirlpool";
+
+        const hmList = new Array();
+
         for (let index = 0; index < body.info.move_learnsets[number].learnset.length; index++) {
             if (body.info.move_learnsets[number].learnset[index].tm != null) {
-                array[index] = index;
-                tmCount++;
-            } else {
-                failCount++;
+                var skip = false;
+                hms.forEach(element => {
+                    if (element.substring(7) == body.info.move_learnsets[number].learnset[index].move) {
+                        //skips this iteration, but add it to an hm's list
+                        hmList.push(element);
+                        skip = true;
+                    }
+                });
+                //if it's an hm from 1-7 take it out anyways for sorting
+                if(body.info.move_learnsets[number].learnset[index].tm.charAt(0) == "H"){
+                    hmList.push(body.info.move_learnsets[number].learnset[index].tm + " - " + body.info.move_learnsets[number].learnset[index].move);
+                    skip = true;
+                }
+                if (!skip) {
+                    tmList.push(body.info.move_learnsets[number].learnset[index].tm + " - " + body.info.move_learnsets[number].learnset[index].move);
+                }
             }
         }
-        const tmListOne = new Array();
-        const tmListTwo = new Array();
 
-        if (array.length == 0) {
-            var array = "This Pokemon cannot learn any TMs or HMs"
-        } else {
-            const countTwo = (tmCount - (tmCount % 2)) / 2;
-            const countOne = tmCount - countTwo;
+        hmList.sort();
+        hmList.reverse();
 
-            for (let index = failCount; index < body.info.move_learnsets[number].learnset.length - countTwo; index++) {
-                tmListOne[index - failCount] = body.info.move_learnsets[number].learnset[index].tm + " - " + body.info.move_learnsets[number].learnset[index].move;
-            }
-            for (let index = failCount + countOne; index < body.info.move_learnsets[number].learnset.length; index++) {
-                tmListTwo[index - failCount - countOne] = body.info.move_learnsets[number].learnset[index].tm + " - " + body.info.move_learnsets[number].learnset[index].move;
-            }
+        hmList.forEach(element => {
+            tmList.unshift(element);
+        });
+
+        if (tmList.length == 0) {
+            var tmList = "This Pokemon cannot learn any TMs or HMs"
         }
+
+        //able to split into two columns with 2 lines of code rather than like 20
+        var tmListTwo = new Array();
+
+        tmListTwo = tmList.splice((tmList.length - (tmList.length % 2)) / 2, tmList.length - (tmList.length - (tmList.length % 2)) / 2);
 
         const embed = new discord.RichEmbed()
             .setTitle(`#${body.info.national_id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
             .setColor(0x0000C8)
-            .addField("TM/HM List", tmListOne, true)
+            
+            .addField("TM/HM List", tmList, true)
             .addField("\u200b", tmListTwo, true)
             .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
 
