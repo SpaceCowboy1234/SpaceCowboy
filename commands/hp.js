@@ -36,9 +36,9 @@ exports.run = (client, message, args) => {
   }
 
 
-  //if(HPIV > 31 || AttackIV > 31 || DefenseIV > 31 || SpeedIV > 31 || SpAtkIV > 31 || SpDefIV > 31) {
-  //  return message.channel.send("One or More of your IV's are too high, please re-check your IV's")
-  //}
+  if(HPIV > 31 || AttackIV > 31 || DefenseIV > 31 || SpeedIV > 31 || SpAtkIV > 31 || SpDefIV > 31) {
+    return message.channel.send("One or multiple of the given IVs are higher then 31. please check your IVs and try the command again!")
+  }
 
 
   //Checks if IVs are even numbers for HP
