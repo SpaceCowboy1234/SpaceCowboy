@@ -28,6 +28,6 @@ exports.conf = {
 
 exports.help = {
   name: 'download',
-  description: 'Displays all the available download links',
+  description: 'Displays all the available download links for P1',
   usage: 'download'
 };
