@@ -1,10 +1,13 @@
 const {RichEmbed} = require("discord.js");
 const settings = require('../settings.json');
 exports.run = (client, message, args) => {
+    /*if (!args[0]) {
+        message.channel.send(`Please input a player's name - use **${settings.prefix}help player** for more info!`);
+        return;
+    }*/
 
     //const search = args.splice(0, args.length).join(" ").toLowerCase()
 
-    //if(!search) return;
 //Badges
     let kbadge = "0"
     let jbadge = "8"
@@ -30,7 +33,11 @@ exports.run = (client, message, args) => {
     .addField(`Levels`, `**Kanto:** ${klvl}\n**Johto:** ${jlvl}\n**Unova:** ${ulvl}`, true)
     .addField(`Pokedex`, `**Ecounters:** ${encount}\n**Seen:** ${seen}\n**Caught:** ${caught}\n**Balls Thrown:** ${pbthrow}`)
 
-
+    /*IF PLAYER NOT FOUND (404)
+    if (body.status == "404") {
+        message.channel.send(`Player: ${args[0]} not found. Please double check spelling!`);
+        return;
+    }*/
 
     message.channel.send("", {
         embed: embed

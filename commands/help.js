@@ -9,6 +9,8 @@ exports.run = (client, message, params) => {
     if (client.commands.has(command)) {
       command = client.commands.get(command);
       message.channel.send(`= Command: ${command.help.name} = \n${command.help.description}\nUsage: ` + settings.prefix + `${command.help.usage}`, {code:'asciidoc'});
+    } else {
+      message.channel.send(`Command: ${args[0]} not found. Please double check spelling!`);
     }
   }
 };

@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
       command = client.aliases.get(args[0]);
     }
     if (!command) {
-      return message.channel.send(`I cannot find the command: ${args[0]}`);
+      return message.channel.send(`Command: ${args[0]} not found. Please double check spelling!`);
     } else {
       message.channel.send(`Reloading: ${command}`)
         .then(m => {
@@ -35,7 +35,7 @@ exports.run = (client, message, args) => {
   exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: [],
+    aliases: ['r'],
     permLevel: 4
   };
   

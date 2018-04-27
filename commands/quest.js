@@ -3,10 +3,12 @@ const snekfetch = require("snekfetch");
 const settings = require('../settings.json');
 
 exports.run = async (client, message, args) => {
+    
+    if (!args[0]) {
+        message.channel.send(`Please input a quest name or region - use **${settings.prefix}help quest** for more info!`);
+        return;
+    }
     const search = args.splice(0, args.length).join(" ").toLowerCase()
-
-    if(!search) return;
-
     
     const api = settings.api.url
     const route = "/quest/"
@@ -18,6 +20,7 @@ snekfetch.get(apifull).then(r => {
     let body = r.body
 
     if (body.status == "404") {
+        message.channel.send(`Quest/Region: ${args[0]} not found. Please double check spelling!`);
         return;
     }
 

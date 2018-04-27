@@ -2,9 +2,11 @@ const { RichEmbed } = require("discord.js");
 const snekfetch = require("snekfetch");
 const settings = require('../settings.json');
 exports.run = async (client, message, args) => {
+    if (!args[0]) {
+        message.channel.send(`Please input a Pokemon - use **${settings.prefix}help pokemon** for more info!`);
+        return;
+    }
     const search = args.splice(0, args.length).join(" ").toLowerCase()
-
-    if (!search) return;
 
     const api = settings.api.url
     const route = "/pokemon/"
@@ -16,6 +18,7 @@ exports.run = async (client, message, args) => {
         let body = r.body
 
         if (body.status == "404") {
+            message.channel.send(`Pokemon: ${args[0]} not found. Please double check spelling!`);
             return;
         }
 
