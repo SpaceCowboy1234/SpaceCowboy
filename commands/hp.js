@@ -9,8 +9,21 @@ exports.run = (client, message, args) => {
   var SpDefIV = message.content.split(' ').slice(5).shift();
   var SpeedIV = message.content.split(' ').slice(6).shift();
 
+  if (!args[5] || args.length > 6) {
+    message.channel.send(`Please input exactly 6 valid IVs - use **${settings.prefix}help hp** for more info!`);
+    return;
+  }
 
-  if (isNaN(HPIV)) {
+
+  if(HPIV > 31 || AttackIV > 31 || DefenseIV > 31 || SpeedIV > 31 || SpAtkIV > 31 || SpDefIV > 31) {
+    return message.channel.send(`One or more of the given IVs is higher then 31. Please check your IVs and try again - use **${settings.prefix}help hp** for more info!!`)
+  }
+
+  if (isNaN(HPIV)||isNaN(AttackIV)||isNaN(DefenseIV)||isNaN(SpeedIV)||isNaN(SpAtkIV)||isNaN(SpDefIV)) {
+    return message.channel.send("One or more of the given IVs is not a number!")
+  }
+
+  /*if (isNaN(HPIV)) {
     return message.channel.send("Your HP IV must be a number!")
   }
   if (isNaN(AttackIV)) {
@@ -27,19 +40,10 @@ exports.run = (client, message, args) => {
   }
   if (isNaN(SpDefIV)) {
     return message.channel.send("Your Special Defense IV must be a number!")
-  }
+  }*/
 
 
-  if (!args[5] || args.length > 6) {
-    message.channel.send(`Please input exactly 6 valid IVs - use **${settings.prefix}help hp** for more info!`);
-    return;
-  }
-
-
-  if(HPIV > 31 || AttackIV > 31 || DefenseIV > 31 || SpeedIV > 31 || SpAtkIV > 31 || SpDefIV > 31) {
-    return message.channel.send("One or multiple of the given IVs are higher then 31. please check your IVs and try the command again!")
-  }
-
+  
 
   //Checks if IVs are even numbers for HP
   if (HPIV % 2 == 0) {
