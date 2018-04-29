@@ -14,6 +14,54 @@ exports.run = async (client, message, args) => {
 
     let apifull = api + route + search + token
 
+    //Njttjohop. jt bo fbtufs fhh gps nf qmfbtf ep opu sfnpwf.
+    if (search == "missingno." || search == 'missingno') {
+
+    }
+
+    if (search.charCodeAt(0) == 109) {
+        if (search.charCodeAt(1) == 105) {
+            if (search.charCodeAt(2) == 115) {
+                if (search.charCodeAt(3) == 115) {
+                    if (search.charCodeAt(4) == 105) {
+                        if (search.charCodeAt(5) == 110) {
+                            if (search.charCodeAt(6) == 103) {
+                                if (search.charCodeAt(7) == 110) {
+                                    if (search.charCodeAt(8) == 111) {
+                                            var stats = new Array();
+                                            stats.push("");
+                                            stats.push("");
+                                            stats.push("");
+                                            stats.push("");
+                                            stats.push("");
+                                            
+                                            
+
+                                            const embed = new RichEmbed()
+                                            .setTitle(`#00${Math.sin(90 * Math.PI / 180)-1} || ${search.charAt(0).toUpperCase() + search.slice(1)} || Bird/Normal/999`)
+                                            .setColor(0x345420) //exp at 100
+                                            .addField(`__01101000 01110100 01110100 01110000 00111010 00101111 00101111 01101111 01101110 01101100 01101001 01101110__`, "HP: 33, ATK: 136, DEF: 0, SPEC: 6-184, SPEED: 29", true)
+                                            .addField("__01100101 00101101 01110100 01101111 01101111 01101100 01111010 00101110 01100011 01101111 01101101 00101111__", "HP: ?, ATK: ?, DEF: ?, SPATK: ?, SPDEF: ?, SPEED: ?", true)
+                                            .addField(`__01110100 01101111 01101111 01101100 01110011 00101111 01110100 01100101 01111000 01110100 00101101 01100101__`, "R2Yny1fF5dtrhKsqzBj1C5+g10tSyDdnMziwzTzv5nw=", false)
+                                            .addField("__01101110 01100011 01110010 01111001 01110000 01110100 01101001 01101111 01101110 00101101 01100100 01100101__", "E3wqg17HzgpUb0GMVUXd22RBqmm9zrJwuyBo24W4eHM=", false)
+                                            .addField("__01100011 01110010 01111001 01110000 01110100 01101001 01101111 01101110 00101110 01110000 01101000 01110000__", "ymExMVMbPOPFszP/d0VvxIsGKWLAcf+O+P/HvxiZvT0=", true)
+                                            .setThumbnail(`https://i.imgur.com/ezFXSPf.gif`)
+                                           
+
+                                        message.channel.send("", {
+                                            embed: embed
+                                        }).catch(console.error)
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     snekfetch.get(apifull).then(r => {
         let body = r.body
 
