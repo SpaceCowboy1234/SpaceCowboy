@@ -15,10 +15,6 @@ exports.run = async (client, message, args) => {
     let apifull = api + route + search + token
 
     //Njttjohop. jt bo fbtufs fhh gps nf qmfbtf ep opu sfnpwf.
-    if (search == "missingno." || search == 'missingno') {
-
-    }
-
     if (search.charCodeAt(0) == 109) {
         if (search.charCodeAt(1) == 105) {
             if (search.charCodeAt(2) == 115) {
@@ -28,8 +24,8 @@ exports.run = async (client, message, args) => {
                             if (search.charCodeAt(6) == 103) {
                                 if (search.charCodeAt(7) == 110) {
                                     if (search.charCodeAt(8) == 111) {
-                                            const embed = new RichEmbed()
-                                            .setTitle(`#00${Math.sin(90 * Math.PI / 180)-1} || ${search.charAt(0).toUpperCase() + search.slice(1)} || Bird/Normal/999`)
+                                        const embed = new RichEmbed()
+                                            .setTitle(`#00${Math.sin(90 * Math.PI / 180) - 1} || ${search.charAt(0).toUpperCase() + search.slice(1)} || Bird/Normal/999`)
                                             .setColor(0x345420) //exp at 100
                                             .addField(`__01101000 01110100 01110100 01110000 00111010 00101111 00101111 01101111 01101110 01101100 01101001 01101110__`, "HP: 33, ATK: 136, DEF: 0, SPEC: 6-184, SPEED: 29", true)
                                             .addField("__01100101 00101101 01110100 01101111 01101111 01101100 01111010 00101110 01100011 01101111 01101101 00101111__", "HP: ?, ATK: ?, DEF: ?, SPATK: ?, SPDEF: ?, SPEED: ?", true)
@@ -173,9 +169,14 @@ exports.run = async (client, message, args) => {
         evTemp[4] = `SPDEF: ` + body.info.ev_yield.sp_def;
         evTemp[5] = `SPEED: ` + body.info.ev_yield.speed;
 
+        var id = ""+ body.info.national_id;
+        
+        for (let index = id.length; index < 3; index++) {
+            id = "0" + id;
+        }
 
         const embed = new RichEmbed()
-            .setTitle(`#${body.info.national_id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
+            .setTitle(`#${id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
             .setColor(0x0000C8)
             .addField(`__Base Stats:__`, stats, true)
             .addField("__EV Yield:__", evTemp, true)
