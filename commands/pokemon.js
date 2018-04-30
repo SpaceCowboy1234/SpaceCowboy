@@ -15,37 +15,19 @@ exports.run = async (client, message, args) => {
     let apifull = api + route + search + token
 
     //Njttjohop. jt bo fbtufs fhh gps nf qmfbtf ep opu sfnpwf.
-    if (search.charCodeAt(0) == 109) {
-        if (search.charCodeAt(1) == 105) {
-            if (search.charCodeAt(2) == 115) {
-                if (search.charCodeAt(3) == 115) {
-                    if (search.charCodeAt(4) == 105) {
-                        if (search.charCodeAt(5) == 110) {
-                            if (search.charCodeAt(6) == 103) {
-                                if (search.charCodeAt(7) == 110) {
-                                    if (search.charCodeAt(8) == 111) {
-                                        const embed = new RichEmbed()
-                                            .setTitle(`#00${Math.sin(90 * Math.PI / 180) - 1} || ${search.charAt(0).toUpperCase() + search.slice(1)} || Bird/Normal/999`)
-                                            .setColor(0x345420) //exp at 100
-                                            .addField(`__01101000 01110100 01110100 01110000 00111010 00101111 00101111 01101111 01101110 01101100 01101001 01101110__`, "HP: 33, ATK: 136, DEF: 0, SPEC: 6-184, SPEED: 29", true)
-                                            .addField("__01100101 00101101 01110100 01101111 01101111 01101100 01111010 00101110 01100011 01101111 01101101 00101111__", "HP: ?, ATK: ?, DEF: ?, SPATK: ?, SPDEF: ?, SPEED: ?", true)
-                                            .addField(`__01110100 01101111 01101111 01101100 01110011 00101111 01110100 01100101 01111000 01110100 00101101 01100101__`, "R2Yny1fF5dtrhKsqzBj1C5+g10tSyDdnMziwzTzv5nw=", false)
-                                            .addField("__01101110 01100011 01110010 01111001 01110000 01110100 01101001 01101111 01101110 00101101 01100100 01100101__", "E3wqg17HzgpUb0GMVUXd22RBqmm9zrJwuyBo24W4eHM=", false)
-                                            .addField("__01100011 01110010 01111001 01110000 01110100 01101001 01101111 01101110 00101110 01110000 01101000 01110000__", "ymExMVMbPOPFszP/d0VvxIsGKWLAcf+O+P/HvxiZvT0=", true)
-                                            .setThumbnail(`https://i.imgur.com/ezFXSPf.gif`);
-                                        message.channel.send("", {
-                                            embed: embed
-                                        }).catch(console.error)
-                                        return;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    if (search.charCodeAt(0) == 109 && search.charCodeAt(1) == 105 && search.charCodeAt(2) == 115 && search.charCodeAt(3) == 115 && search.charCodeAt(4) == 105 && search.charCodeAt(5) == 110 && search.charCodeAt(6) == 103 && search.charCodeAt(7) == 110 && search.charCodeAt(8) == 111 && search.length == 9) {
+        const embed = new RichEmbed()
+            .setTitle(`#00${Math.sin(90 * Math.PI / 180) - 1} || ${search.charAt(0).toUpperCase() + search.slice(1)} || Bird/Normal/999`)
+            .setColor(0x345420) //exp at 100
+            .addField(`01101000 01110100 01110100 01110000 00111010 00101111 00101111 01101111 01101110 01101100 01101001 01101110`, "HP: 33, ATK: 136, DEF: 0, SPEC: 6-184, SPEED: 29", true)
+            .addField("01100101 00101101 01110100 01101111 01101111 01101100 01111010 00101110 01100011 01101111 01101101 00101111", "HP: ?, ATK: ?, DEF: ?, SPATK: ?, SPDEF: ?, SPEED: ?", true)
+            .addField(`01110100 01101111 01101111 01101100 01110011 00101111 01110100 01100101 01111000 01110100 00101101 01100101`, "R2Yny1fF5dtrhKsqzBj1C5+g10tSyDdnMziwzTzv5nw=", false)
+            .addField("01101110 01100011 01110010 01111001 01110000 01110100 01101001 01101111 01101110 00101101 01100100 01100101", "E3wqg17HzgpUb0GMVUXd22RBqmm9zrJwuyBo24W4eHM=", false)
+            .addField("01100011 01110010 01111001 01110000 01110100 01101001 01101111 01101110 00101110 01110000 01101000 01110000", "ymExMVMbPOPFszP/d0VvxIsGKWLAcf+O+P/HvxiZvT0=", true)
+            .setThumbnail(`https://i.imgur.com/ezFXSPf.gif`);
+        return message.channel.send("", { embed: embed }).catch(console.error);
     }
+
 
     snekfetch.get(apifull).then(r => {
         let body = r.body
@@ -169,8 +151,8 @@ exports.run = async (client, message, args) => {
         evTemp[4] = `SPDEF: ` + body.info.ev_yield.sp_def;
         evTemp[5] = `SPEED: ` + body.info.ev_yield.speed;
 
-        var id = ""+ body.info.national_id;
-        
+        var id = "" + body.info.national_id;
+
         for (let index = id.length; index < 3; index++) {
             id = "0" + id;
         }
