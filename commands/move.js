@@ -5,8 +5,7 @@ const settings = require('../settings.json');
 exports.run = async (client, message, args) => {
 
     if (!args[0]) {
-        message.channel.send(`Please input a move - use **${settings.prefix}help move** for more info!`);
-        return;
+        return message.channel.send(`Please input a move - use **${settings.prefix}help move** for more info!`);
     }
 
     const search = args.splice(0, args.length).join(" ").toLowerCase()
@@ -20,9 +19,8 @@ exports.run = async (client, message, args) => {
     snekfetch.get(apifull).then(r => {
         let body = r.body
 
-        if (body.status == "404") {
-            message.channel.send(`Move: ${search} not found. Please double check spelling!`);
-            return;
+        if (body.status == "404") {         
+            return message.channel.send(`Move: ${search} not found. Please double check spelling!`);
         }
 
         const embed = new RichEmbed()

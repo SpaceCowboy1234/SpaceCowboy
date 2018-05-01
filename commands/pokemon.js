@@ -3,8 +3,7 @@ const snekfetch = require("snekfetch");
 const settings = require('../settings.json');
 exports.run = async (client, message, args) => {
     if (!args[0]) {
-        message.channel.send(`Please input a Pokemon - use **${settings.prefix}help pokemon** for more info!`);
-        return;
+        return message.channel.send(`Please input a Pokemon - use **${settings.prefix}help pokemon** for more info!`);
     }
     const search = args.splice(0, args.length).join(" ").toLowerCase()
 
@@ -33,8 +32,7 @@ exports.run = async (client, message, args) => {
         let body = r.body
 
         if (body.status == "404") {
-            message.channel.send(`Pokemon: ${search} not found. Please double check spelling!`);
-            return;
+            return message.channel.send(`Pokemon: ${search} not found. Please double check spelling!`);
         }
 
         const abilities = new Array();

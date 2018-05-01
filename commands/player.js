@@ -2,8 +2,8 @@ const {RichEmbed} = require("discord.js");
 const settings = require('../settings.json');
 exports.run = (client, message, args) => {
     /*if (!args[0]) {
-        message.channel.send(`Please input a player's name - use **${settings.prefix}help player** for more info!`);
-        return;
+       return message.channel.send(`Please input a player's name - use **${settings.prefix}help player** for more info!`);
+        
     }*/
 
     //const search = args.splice(0, args.length).join(" ").toLowerCase()
@@ -35,8 +35,8 @@ exports.run = (client, message, args) => {
 
     /*IF PLAYER NOT FOUND (404)
     if (body.status == "404") {
-        message.channel.send(`Player: ${search} not found. Please double check spelling!`);
-        return;
+        return message.channel.send(`Player: ${search} not found. Please double check spelling!`);
+       
     }*/
 
     message.channel.send("", {

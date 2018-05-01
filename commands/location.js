@@ -4,8 +4,7 @@ const settings = require('../settings.json');
 
 exports.run = async (client, message, args) => {
     if (!args[0]) {
-        message.channel.send(`Please input a location - use **${settings.prefix}help location** for more info!`);
-        return;
+        return message.channel.send(`Please input a location - use **${settings.prefix}help location** for more info!`);
     }
     
     const search = args.splice(0, args.length).join(" ").toLowerCase()
@@ -17,9 +16,8 @@ exports.run = async (client, message, args) => {
         .addField(`Items`, `{itemList}`)
 
     /*IF LOCATION NOT FOUND (404)
-    if (body.status == "404") {
-        message.channel.send(`Location: ${search} not found. Please double check spelling!`);
-        return;
+    if (body.status == "404") {    
+        return message.channel.send(`Location: ${search} not found. Please double check spelling!`);
     }*/
 
     message.channel.send("", {

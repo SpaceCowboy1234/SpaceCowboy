@@ -10,8 +10,7 @@ exports.run = (client, message, args) => {
   var SpeedIV = message.content.split(' ').slice(6).shift();
 
   if (!args[5] || args.length > 6) {
-    message.channel.send(`Please input exactly 6 valid IVs. Input your Pokemon's IVs separated by a space: **${settings.prefix}hp 23 19 16 7 16 20** - use **${settings.prefix}help hp** for more info!`);
-    return;
+    return message.channel.send(`Please input exactly 6 valid IVs. Input your Pokemon's IVs separated by a space: **${settings.prefix}hp 23 19 16 7 16 20** - use **${settings.prefix}help hp** for more info!`);
   }
 
 

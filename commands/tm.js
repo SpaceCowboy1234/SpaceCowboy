@@ -4,8 +4,7 @@ const snekfetch = require("snekfetch");
 
 exports.run = (client, message, args) => {
     if (!args[0]) {
-        message.channel.send(`Please input a Pokemon - use **${settings.prefix}help tm** for more info!`);
-        return;
+        return message.channel.send(`Please input a Pokemon - use **${settings.prefix}help tm** for more info!`);
     }
     const search = args.splice(0, args.length).join(" ").toLowerCase()
 
@@ -19,8 +18,7 @@ exports.run = (client, message, args) => {
         let body = r.body
 
         if (body.status == "404") {
-            message.channel.send(`Pokemon: ${search} not found. Please double check spelling!`);
-            return;
+            return message.channel.send(`Pokemon: ${search} not found. Please double check spelling!`);
         }
 
         let number = 0;

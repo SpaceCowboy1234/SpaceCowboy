@@ -5,8 +5,7 @@ const settings = require('../settings.json');
 exports.run = async (client, message, args) => {
     
     if (!args[0]) {
-        message.channel.send(`Please input a quest name or region - use **${settings.prefix}help quest** for more info!`);
-        return;
+       return message.channel.send(`Please input a quest name or region - use **${settings.prefix}help quest** for more info!`);
     }
     const search = args.splice(0, args.length).join(" ").toLowerCase()
     
@@ -20,8 +19,7 @@ snekfetch.get(apifull).then(r => {
     let body = r.body
 
     if (body.status == "404") {
-        message.channel.send(`Quest/Region: ${search} not found. Please double check spelling!`);
-        return;
+       return message.channel.send(`Quest/Region: ${search} not found. Please double check spelling!`);
     }
 
     if(body.data.type == "quest") {
