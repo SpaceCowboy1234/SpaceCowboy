@@ -72,7 +72,7 @@ exports.run = (client, message, args) => {
         });
 
         if (tmList.length == 0) {
-            var tmList = "This Pokemon cannot learn any TMs or HMs"
+            var tmList = `${body.info.names.en} cannot learn any TMs nor HMs!`;
         }
 
         //able to split into two columns with 2 lines of code rather than like 20
