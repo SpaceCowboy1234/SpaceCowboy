@@ -13,7 +13,10 @@ module.exports = message => {
     cmd = client.commands.get(client.aliases.get(command));
   }
   if (cmd) {
-    if (cmd.conf.enabled == false) return;
+    if (cmd.conf.enabled == false) {
+      message.channel.send(`${command} is currently disabled!`)
+      return;
+    };
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
   }
