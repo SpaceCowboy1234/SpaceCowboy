@@ -20,8 +20,7 @@ exports.run = async (client, message, args) => {
         let body = r.body
 
         if (body.status == "404") {
-            message.channel.send(`Ability: ${args[0]} not found. Please double check spelling!`);
-            return;
+            return message.channel.send(`Ability: ${search} not found. Please double check spelling!`);;
         }
 
         const embed = new RichEmbed()

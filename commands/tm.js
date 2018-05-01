@@ -19,7 +19,7 @@ exports.run = (client, message, args) => {
         let body = r.body
 
         if (body.status == "404") {
-            message.channel.send(`Pokemon: ${args[0]} not found. Please double check spelling!`);
+            message.channel.send(`Pokemon: ${search} not found. Please double check spelling!`);
             return;
         }
 
@@ -83,7 +83,6 @@ exports.run = (client, message, args) => {
         const embed = new discord.RichEmbed()
             .setTitle(`#${body.info.national_id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
             .setColor(0x0000C8)
-            
             .addField("TM/HM List", tmList, true)
             .addField("\u200b", tmListTwo, true)
             .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)

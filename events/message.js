@@ -14,7 +14,7 @@ module.exports = message => {
   }
   if (cmd) {
     if (cmd.conf.enabled == false) {
-      message.channel.send(`${command} is currently disabled!`)
+      message.channel.send(`${settings.prefix}${command} is currently disabled!`)
       return;
     };
     if (perms < cmd.conf.permLevel) return;

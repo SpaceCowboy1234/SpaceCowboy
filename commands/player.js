@@ -35,7 +35,7 @@ exports.run = (client, message, args) => {
 
     /*IF PLAYER NOT FOUND (404)
     if (body.status == "404") {
-        message.channel.send(`Player: ${args[0]} not found. Please double check spelling!`);
+        message.channel.send(`Player: ${search} not found. Please double check spelling!`);
         return;
     }*/
 

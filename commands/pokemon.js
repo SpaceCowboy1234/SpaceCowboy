@@ -33,7 +33,7 @@ exports.run = async (client, message, args) => {
         let body = r.body
 
         if (body.status == "404") {
-            message.channel.send(`Pokemon: ${args[0]} not found. Please double check spelling!`);
+            message.channel.send(`Pokemon: ${search} not found. Please double check spelling!`);
             return;
         }
 

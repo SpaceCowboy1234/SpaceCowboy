@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
 
     /*IF LOCATION NOT FOUND (404)
     if (body.status == "404") {
-        message.channel.send(`Location: ${args[0]} not found. Please double check spelling!`);
+        message.channel.send(`Location: ${search} not found. Please double check spelling!`);
         return;
     }*/
 
