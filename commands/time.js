@@ -14,7 +14,7 @@ snekfetch.get(apifull).then(r => {
     let body = r.body
 
     const embed = new RichEmbed()
-    .setTitle(`Timed Events || ${body.today}`)
+    .setTitle(`Timed Events || ${body.day}`)
     .addField("Daily Reset", `${body.dailyReset}`, true)
     .addField("Contests", `**Bug Contest:** ${body.bug}`, true)
     .addField("S.S. Anne", `**To Olivine:** ${body.olivine}\n**To Vermilion:** ${body.vermilion}`, true)
