@@ -8,13 +8,8 @@ exports.run = async (client, message, args) => {
         return message.channel.send(`Please input a move - use **${settings.prefix}help move** for more info!`);
     }
 
-<<<<<<< HEAD
-    const search = args.splice(0, args.length).join(" ").toLowerCase()
-
-=======
     const search = args.splice(0, args.length).join("_").toLowerCase()
     
->>>>>>> d7a53a9b8284f1f6334fdaee843155e4caa976b1
     const api = settings.api.url
     const route = "/moves/"
     const token = settings.api.token
