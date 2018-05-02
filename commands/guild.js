@@ -63,12 +63,12 @@ exports.run = async (client, message, args) => {
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ["guilds"],
+    aliases: ["guilds", "g"],
     permLevel: 0
 };
 
 exports.help = {
     name: "guild",
-    description: "Gives information on searched guild",
+    description: "Gives information on given guild",
     usage: "guild [guild name]"
 };
