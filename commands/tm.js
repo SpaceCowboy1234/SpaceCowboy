@@ -76,7 +76,7 @@ exports.run = (client, message, args) => {
         //able to split into two columns with 2 lines of code rather than like 20
         var tmListTwo = new Array();
 
-        tmListTwo = tmList.splice((tmList.length - (tmList.length % 2)) / 2, tmList.length - (tmList.length - (tmList.length % 2)) / 2);
+        tmListTwo = tmList.splice((tmList.length + (tmList.length % 2)) / 2, tmList.length - (tmList.length - (tmList.length % 2)) / 2);
 
         const embed = new discord.RichEmbed()
             .setTitle(`#${body.info.national_id} || ${body.info.names.en} || ${body.info.types.join('/')}`)

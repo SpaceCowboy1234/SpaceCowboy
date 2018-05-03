@@ -80,7 +80,7 @@ exports.run = async (client, message, args) => {
                 //What minimum level does it need?
                 const level = body.info.evolutions[index].level;
                 if (level != null) {
-                    evo = evo + " at level " + level;
+                    evo = evo + " starting at level " + level;
                 }
 
                 //Does it require a level up to trigger?
@@ -89,10 +89,16 @@ exports.run = async (client, message, args) => {
                     evo = evo + " after a level up";
                 }
 
-                //Does it need max happiness?
+                //Does it need happiness?
                 const happy = body.info.evolutions[index].happiness;
                 if (happy != null) {
-                    evo = evo + " with max happiness";
+                    evo = evo + " with at least 220 friendship";
+                }
+
+                //Does it need a specific move?
+                const move = body.info.evolutions[index].move_learned;
+                if (move != null) {
+                    evo = evo + " knowing the move " + move;
                 }
 
                 //Does it need to satisfy certain conditions?
