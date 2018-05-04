@@ -13,21 +13,6 @@ exports.run = async (client, message, args) => {
 
     let apifull = api + route + search + token
 
-    //Njttjohop. jt bo fbtufs fhh gps nf qmfbtf ep opu sfnpwf.
-    if (search.charCodeAt(0) == 109 && search.charCodeAt(1) == 105 && search.charCodeAt(2) == 115 && search.charCodeAt(3) == 115 && search.charCodeAt(4) == 105 && search.charCodeAt(5) == 110 && search.charCodeAt(6) == 103 && search.charCodeAt(7) == 110 && search.charCodeAt(8) == 111 && search.length == 9) {
-        const embed = new RichEmbed()
-            .setTitle(`#00${Math.sin(90 * Math.PI / 180) - 1} || ${search.charAt(0).toUpperCase() + search.slice(1)} || Bird/Normal/999`)
-            .setColor(0x345420) //exp at 100
-            .addField(`01101000 01110100 01110100 01110000 00111010 00101111 00101111 01101111 01101110 01101100 01101001 01101110`, "HP: 33, ATK: 136, DEF: 0, SPEC: 6-184, SPEED: 29", true)
-            .addField("01100101 00101101 01110100 01101111 01101111 01101100 01111010 00101110 01100011 01101111 01101101 00101111", "HP: ?, ATK: ?, DEF: ?, SPATK: ?, SPDEF: ?, SPEED: ?", true)
-            .addField(`01110100 01101111 01101111 01101100 01110011 00101111 01110100 01100101 01111000 01110100 00101101 01100101`, "R2Yny1fF5dtrhKsqzBj1C5+g10tSyDdnMziwzTzv5nw=", false)
-            .addField("01101110 01100011 01110010 01111001 01110000 01110100 01101001 01101111 01101110 00101101 01100100 01100101", "E3wqg17HzgpUb0GMVUXd22RBqmm9zrJwuyBo24W4eHM=", false)
-            .addField("01100011 01110010 01111001 01110000 01110100 01101001 01101111 01101110 00101110 01110000 01101000 01110000", "ymExMVMbPOPFszP/d0VvxIsGKWLAcf+O+P/HvxiZvT0=", true)
-            .setThumbnail(`https://i.imgur.com/ezFXSPf.gif`);
-        return message.channel.send("", { embed: embed }).catch(console.error);
-    }
-
-
     snekfetch.get(apifull).then(r => {
         let body = r.body
 
@@ -155,22 +140,40 @@ exports.run = async (client, message, args) => {
         evTemp[4] = `SPDEF: ` + body.info.ev_yield.sp_def;
         evTemp[5] = `SPEED: ` + body.info.ev_yield.speed;
 
+        //rework
         var id = "" + body.info.national_id;
 
         for (let index = id.length; index < 3; index++) {
             id = "0" + id;
         }
 
-        const embed = new RichEmbed()
-            .setTitle(`#${id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
-            .setColor(0x0000C8)
-            .addField(`__Base Stats:__`, stats, true)
-            .addField("__EV Yield:__", evTemp, true)
-            .addField(`__Ability:__`, abilities, false)
-            .addField("__Evolves From:__", prevolution, false)
-            .addField("__Evolves Into:__", evolutions, true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
+        var image;
+        if(body.info.custom_image){
+            image = body.info.custom_image;
+        } else {
+            image = `http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`;
+        }
 
+        const embed = new RichEmbed()
+        if(body.info.isGlitch){
+            embed.setTitle(`#${body.info.national_id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
+            embed.setColor(0x0000C8)
+            embed.addField(`__${body.info.encoder[0]}:__`, stats.join(", "), true)
+            embed.addField(`__${body.info.encoder[1]}:__`, evTemp.join(", "), true)
+            embed.addField(`__${body.info.encoder[2]}:__`, abilities, false)
+            embed.addField(`__${body.info.encoder[3]}:__`, prevolution, false)
+            embed.addField(`__${body.info.encoder[4]}:__`, evolutions, true)
+            embed.setThumbnail(image);
+        } else {
+            embed.setTitle(`#${body.info.national_id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
+            embed.setColor(0x0000C8)
+            embed.addField(`__Base Stats:__`, stats, true)
+            embed.addField("__EV Yield:__", evTemp, true)
+            embed.addField(`__Abilities:__`, abilities, false)
+            embed.addField("__Evolves From:__", prevolution, false)
+            embed.addField("__Evolves Into:__", evolutions, true)
+            embed.setThumbnail(image);
+        }
         message.channel.send("", {
             embed: embed
         }).catch(console.error)

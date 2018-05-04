@@ -3,8 +3,8 @@ const discord = require("discord.js");
 const snekfetch = require("snekfetch");
 
 exports.run = (client, message, args) => {
-    if(!args[0]){  
-    return message.channel.send(`Please input a Pokemon - use **${settings.prefix}help learnset** for more info!`);
+    if (!args[0]) {
+        return message.channel.send(`Please input a Pokemon - use **${settings.prefix}help learnset** for more info!`);
     }
     const search = args.splice(0, args.length).join(" ").toLowerCase()
 
@@ -33,7 +33,6 @@ exports.run = (client, message, args) => {
         var array = new Array();
         for (let index = 0; index < body.info.move_learnsets[number].learnset.length; index++) {
             if (body.info.move_learnsets[number].learnset[index].level != null) {
-
                 array[index] = "Lvl." + body.info.move_learnsets[number].learnset[index].level + " - " + body.info.move_learnsets[number].learnset[index].move;
             }
         }
@@ -53,8 +52,7 @@ exports.run = (client, message, args) => {
 
     });
 }
-exports.conf =
-    {
+exports.conf = {
         enabled: true,
         guildOnly: false,
         aliases: ['level', 'learn', 'set'],
