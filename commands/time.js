@@ -18,7 +18,9 @@ snekfetch.get(apifull).then(r => {
     .addField("Daily Reset", `${body.dailyReset}`, true)
     .addField("Contests", `**Bug Contest:** ${body.bug}`, true)
     .addField("S.S. Anne", `**To Olivine:** ${body.olivine}\n**To Vermilion:** ${body.vermilion}`, true)
-    .addField("Maps", `**Union Cave BF2:** ${body.unioncaveb2f}\n**Flooded Lake of Rage:** ${body.rage}\n**MooMoo Farm:** ${body.moomoofarm}`, true)
+    .addField("Week Siblings", `**Monday:** ${body.mon}\n**Tuesday:** ${body.tue}\n**Wednesday:** ${body.wed}\n**Thursday:** ${body.thur}\n**Friday:** ${body.fri}\n**Saturday:** ${body.sat}\n**Sunday:** ${body.sun}`, true)
+    .addField('Underground', `**Hairdresser 1:** ${body.hairdresser1}\n**Hairdresser 2:** ${body.hairdresser2}\n**Herb Shop:** ${body.herbshop}`, true)
+    .addField("Maps", `**Union Cave BF2:** ${body.unioncaveb2f}\n**Lake of Rage:** ${body.rage}\n**MooMoo Farm:** ${body.moomoofarm}`, true)
     message.channel.send("", {
         embed: embed
     }).catch(console.error)
