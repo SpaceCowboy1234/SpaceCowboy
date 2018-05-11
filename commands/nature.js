@@ -21,9 +21,12 @@ exports.run = async (client, message, args) => {
             return message.channel.send(`Nature: ${search} not found. Please double check spelling!`);
         }
 
-        const embed = new RichEmbed()
-            .setTitle(`Nature: ${body.data.name}`)
-            .setDescription(`**Increase:** ${body.data.increase}\n**Decrease:** ${body.data.decrease}`)
+          const embed = new RichEmbed()
+            .setTitle(`${body.data.name}`)
+            .addField(`__Increases:__`,`${body.data.increase}`, true)
+            .addField(`__Decreases:__`, ` ${body.data.decrease}`, true)
+            .addField(`\u200b`,`Pokémon with the ${body.data.name} Nature Like: ${body.data.likes} and Dislike: ${body.data.dislikes}`,false)
+
 
         message.channel.send("", {
             embed: embed

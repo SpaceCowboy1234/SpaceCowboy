@@ -28,9 +28,9 @@ exports.run = (client, message, args) => {
     let pbthrow = "10"
 
     const embed = new RichEmbed()
-    .setTitle(`Player: AussieJohto94 || ${playTime}`)
+    .setTitle(`AussieJohto94 || ${playTime}`)
     .addField(`Badges`, `**Kanto:** ${kbadge}\n**Johto:** ${jbadge}\n**Unova:** ${ubadge}`, true)
-    .addField(`Levels`, `**Kanto:** ${klvl}\n**Johto:** ${jlvl}\n**Unova:** ${ulvl}`, true)
+    .addField(`Player Levels`, `**Kanto:** ${klvl}\n**Johto:** ${jlvl}\n**Unova:** ${ulvl}`, true)
     .addField(`Pokedex`, `**Ecounters:** ${encount}\n**Seen:** ${seen}\n**Caught:** ${caught}\n**Balls Thrown:** ${pbthrow}`)
 
     /*IF PLAYER NOT FOUND (404)

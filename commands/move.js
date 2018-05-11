@@ -34,7 +34,7 @@ exports.run = async (client, message, args) => {
         const embed = new RichEmbed()
             .setTitle(body.info.names.en)
             .setDescription(`${body.info.descriptions.en}`)
-            .addField("Stats", `**Base Power:** ${power}\n**Accuracy:** ${acc}%` + "\n**Critical:** " + crit, true)
+            .addField("Move Stats", `**Base Power:** ${power}\n**Accuracy:** ${acc}%` + "\n**Critical:** " + crit, true)
             .addField("\u200b", `**PP:** ${body.info.pp} (MAX: ${body.info.max_pp})\n**Type: **` + body.info.type + `\n**Category:** ` + body.info.category.charAt(0).toUpperCase() + body.info.category.slice(1), true)
 
         message.channel.send("", {

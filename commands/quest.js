@@ -24,10 +24,10 @@ snekfetch.get(apifull).then(r => {
 
     if(body.data.type == "quest") {
         const locSearch = new RichEmbed()
-        .setTitle(`Quest: ${body.data.name} || Part ${body.data.part}`)
+        .setTitle(` ${body.data.name} || Part ${body.data.part}`)
         .setColor("RANDOM")
         .setDescription(`${body.data.description}\nStart: ${body.data.startloc}`)
-        .addField("Rewards", `${body.data.rewards.join(", ")}`)
+        .addField("Quest Rewards", `${body.data.rewards.join(", ")}`)
         .setFooter(`Information by: ${client.users.get('115408700625256454').username}`, client.users.get('115408700625256454').avatarURL)
 
         
@@ -39,7 +39,7 @@ snekfetch.get(apifull).then(r => {
     } else
     if (body.data.type == "region") {
         const loc2Search = new RichEmbed()
-        .setTitle(`Quest: ${body.data.region}`)
+        .setTitle(`Quests in ${body.data.region}`)
         .setColor("RANDOM")
         .addField("Quests Page 1", `${body.data.quests1.join("\n")}`, true)
         .addField("Quests Page 2", `${body.data.quests2.join("\n")}`, true)

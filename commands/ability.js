@@ -22,11 +22,13 @@ exports.run = async (client, message, args) => {
         if (body.status == "404") {
             return message.channel.send(`Ability: ${search} not found. Please double check spelling!`);;
         }
-
-        const embed = new RichEmbed()
-            .setTitle(`Ability: ${body.info.name}`)
-            .setDescription(`${body.info.description}`)
-
+            
+            const embed = new RichEmbed()
+            .setTitle(`__${body.info.name}__`)
+            .addField(`Ability Description:`, `${body.info.description}`, false)
+            .addField(`Effect:`, `${body.info.effect}`, false)
+            
+            
         message.channel.send("", {
             embed: embed
         }).catch(console.error)
