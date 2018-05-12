@@ -24,7 +24,7 @@ exports.run = async (client, message, args) => {
         var evolutions = new Array();
         var prevolution = new Array();
 
-        if (body.info.evolutions[0] == null) {
+        if (body.info.evolutions[0] == null || body.info.evolutions == null) {
             evolutions = `N/A`;
         } else {
             for (let index = 0; index < body.info.evolutions.length; index++) {
@@ -34,7 +34,7 @@ exports.run = async (client, message, args) => {
 
                 //Who is it evolving to?
                 const name = body.info.evolutions[index].to;
-                evo = evo + name;
+                evo = evo + `**${name}**`;
 
                 //Does it require trading?
                 const trading = body.info.evolutions[index].trade;
@@ -154,9 +154,12 @@ exports.run = async (client, message, args) => {
             image = `http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`;
         }
 
+        var eggGroup = body.info.egg_groups;
+
+       
         const embed = new RichEmbed()
         if(body.info.isGlitch){
-            embed.setTitle(`#${body.info.national_id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
+            embed.setTitle(`#${body.info.national_id} || ${body.info.name} || ${body.info.types.join('/')}`)
             embed.setColor(0x0000C8)
             embed.addField(`__${body.info.encoder[0]}:__`, stats.join(", "), true)
             embed.addField(`__${body.info.encoder[1]}:__`, evTemp.join(", "), true)
@@ -165,13 +168,15 @@ exports.run = async (client, message, args) => {
             embed.addField(`__${body.info.encoder[4]}:__`, evolutions, true)
             embed.setThumbnail(image);
         } else {
-            embed.setTitle(`#${body.info.national_id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
+            embed.setTitle(`#${body.info.national_id} || ${body.info.name} || ${body.info.types.join('/')}`)
             embed.setColor(0x0000C8)
             embed.addField(`__Base Stats:__`, stats, true)
             embed.addField("__EV Yield:__", evTemp, true)
-            embed.addField(`__Abilities:__`, abilities, false)
-            embed.addField("__Evolves From:__", prevolution, false)
-            embed.addField("__Evolves Into:__", evolutions, true)
+            embed.addField(`__Weight and Height:__`, body.info.height_us + "\n" + body.info.height_eu + "\n" + body.info.weight_us + "\n" + body.info.weight_eu, true)
+            embed.addField(`__Abilities:__`, abilities, true)
+            embed.addField(`__Egg Group:__`, eggGroup, true)
+            embed.addField("__Evolves From:__", prevolution, true)
+            embed.addField("__Evolves Into:__", evolutions, false)
             embed.setThumbnail(image);
         }
         message.channel.send("", {
