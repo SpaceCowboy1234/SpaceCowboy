@@ -24,8 +24,17 @@ exports.run = (client, message, args) => {
         let number = 0;
 
         //changed to Gen 6 TM list as P1 uses Gen 6 not Gen 7
+
+        var gameTitle;
+        
         for (let index = 0; index < 16; index++) {
-            if (body.info.move_learnsets[index].games[0] == "Omega Ruby") {
+            if (body.info.move_learnsets[index].games.includes("Omega Ruby") == false) {
+                gameTitle = "Ultra Sun"
+            } else {
+                gameTitle = "Omega Ruby"
+            }
+            
+            if (body.info.move_learnsets[index].games[0] == gameTitle) {
                 number = index;
                 break;
             }
@@ -70,7 +79,7 @@ exports.run = (client, message, args) => {
         });
 
         if (tmList.length == 0) {
-            var tmList = `${body.info.names.en} cannot learn any TMs nor HMs!`;
+            var tmList = `${body.info.names} cannot learn any TMs nor HMs!`;
         }
 
         //able to split into two columns with 2 lines of code rather than like 20
@@ -79,13 +88,13 @@ exports.run = (client, message, args) => {
         tmListTwo = tmList.splice((tmList.length + (tmList.length % 2)) / 2, tmList.length - (tmList.length - (tmList.length % 2)) / 2);
 
         const embed = new discord.RichEmbed()
-            .setTitle(`#${body.info.national_id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
+            .setTitle(`#${body.info.national_id} || ${body.info.name} || ${body.info.types.join('/')}`)
             .setColor(0x0000C8)
             .addField("TM/HM List", tmList, true)
             .addField("\u200b", tmListTwo, true)
             .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
 
-        message.channel.send("", {
+        message.channel.send("Gen 7 Pokemon may have wrong TM's HM's ATM!", {
             embed: embed
         }).catch(console.error)
 

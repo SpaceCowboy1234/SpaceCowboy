@@ -6,21 +6,25 @@ exports.run = (client, message, params) => {
     .setTitle(`Download Links`)
     .setColor('RANDOM')
     .setDescription(`
-📂 x86 [No Download]()
-📂 x64 [Download](https://drive.google.com/open?id=1PKgU46_cssJTGY_xC4Kt0r9hjOZpMKXg)
-📂 Mac: [No Download]()
-📂 Linux: [No Download]()
-📂 Android: [TBC]()
+**Google Drive**
+📂 x86 No Download
+📂 x64 No Download
+📂 Mac: ¯\\_(ツ)_/¯
+📂 Linux: TBC
+📂 Android: TBC
     `)
-
+/*
     message.channel.send("", {
         embed: embed
     }).catch(console.error)
+*/
+
+message.channel.send(`you should <#366714491582283778>`)
 
 };
 
 exports.conf = {
-  enabled: false,
+  enabled: true,
   guildOnly: false,
   aliases: ['dl'],
   permLevel: 0

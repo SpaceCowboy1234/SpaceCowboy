@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
         return message.channel.send(`Location: ${search} not found. Please double check spelling!`);
     }*/
 
-    message.channel.send("", {
+    message.channel.send("This is a Placeholder!", {
         embed: embed
     }).catch(console.error)
 
