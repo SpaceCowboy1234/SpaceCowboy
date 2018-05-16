@@ -18,6 +18,10 @@ module.exports = message => {
       return;
     };
     if (perms < cmd.conf.permLevel) return;
+    if (cmd.conf.guildOnly == true && message.channel.type == "dm") {
+      message.channel.send(`${settings.prefix}${command} is a Server only command!`)
+      return;
+    }
     cmd.run(client, message, params, perms);
   }
 

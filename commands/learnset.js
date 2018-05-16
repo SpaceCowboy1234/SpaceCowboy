@@ -24,7 +24,7 @@ exports.run = (client, message, args) => {
         let number = 0;
 
         for (let index = 0; index < 16; index++) {
-            if (body.info.move_learnsets[index].games[0] == "Ultra Sun") {
+            if (body.info.move_learnsets[index].games[0] == "Sun") {
                 number = index;
                 break;
             }

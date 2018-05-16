@@ -26,7 +26,7 @@ exports.run = async (client, message, args) => {
             const embed = new RichEmbed()
             .setTitle(`__${body.info.name}__`)
             .addField(`Ability Description:`, `${body.info.description}`, false)
-            .addField(`Effect:`, `${body.info.effect}`, false)
+            .addField(`Effect:`, `\u200B${body.info.effect}`, false)
             
             
         message.channel.send("", {
