@@ -1,4 +1,6 @@
-const { RichEmbed } = require("discord.js");
+const {
+    RichEmbed
+} = require("discord.js");
 const snekfetch = require("snekfetch");
 const settings = require('../settings.json');
 exports.run = async (client, message, args) => {
@@ -24,7 +26,7 @@ exports.run = async (client, message, args) => {
         var evolutions = new Array();
         var prevolution = new Array();
 
-        if (body.info.evolutions[0] == null || body.info.evolutions == null) {
+        if (body.info.evolutions == null) {
             evolutions = `N/A`;
         } else {
             for (let index = 0; index < body.info.evolutions.length; index++) {
@@ -140,7 +142,6 @@ exports.run = async (client, message, args) => {
         evTemp[4] = `SPDEF: ` + body.info.ev_yield.sp_def;
         evTemp[5] = `SPEED: ` + body.info.ev_yield.speed;
 
-        //rework
         var id = "" + body.info.national_id;
 
         for (let index = id.length; index < 3; index++) {
@@ -148,17 +149,23 @@ exports.run = async (client, message, args) => {
         }
 
         var image;
-        if(body.info.custom_image){
+        if (body.info.custom_image) {
             image = body.info.custom_image;
         } else {
             image = `http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`;
         }
 
         var eggGroup = body.info.egg_groups;
+        var genderRatios = new Array();
 
-       
+        if (body.info.gender_ratios == null) {
+            genderRatios = "Genderless";
+        } else {
+            genderRatios.push("Male: " + body.info.gender_ratios.male + "%");
+            genderRatios.push("Female: " + body.info.gender_ratios.female + "%");
+        }
         const embed = new RichEmbed()
-        if(body.info.isGlitch){
+        if (body.info.isGlitch) {
             embed.setTitle(`#${body.info.national_id} || ${body.info.name} || ${body.info.types.join('/')}`)
             embed.setColor(0x0000C8)
             embed.addField(`__${body.info.encoder[0]}:__`, stats.join(", "), true)
@@ -174,6 +181,7 @@ exports.run = async (client, message, args) => {
             embed.addField("__EV Yield:__", evTemp, true)
             embed.addField(`__Weight and Height:__`, body.info.height_us + "\n" + body.info.height_eu + "\n" + body.info.weight_us + "\n" + body.info.weight_eu, true)
             embed.addField(`__Abilities:__`, abilities, true)
+            embed.addField("__Gender Ratio:__", genderRatios, true)
             embed.addField(`__Egg Group:__`, eggGroup, true)
             embed.addField("__Evolves From:__", prevolution, true)
             embed.addField("__Evolves Into:__", evolutions, false)
