@@ -15,29 +15,12 @@ exports.run = (client, message, args) => {
     let apifull = api + route + search + token
 
     snekfetch.get(apifull).then(r => {
+
+
         let body = r.body
 
         if (body.status == "404") {
             return message.channel.send(`Pokemon: ${search} not found. Please double check spelling!`);
-        }
-
-        let number = 0;
-
-        //changed to Gen 6 TM list as P1 uses Gen 6 not Gen 7
-
-        var gameTitle;
-        
-        for (let index = 0; index < 16; index++) {
-            if (body.info.move_learnsets[index].games.includes("Omega Ruby") == false) {
-                gameTitle = "Ultra Sun"
-            } else {
-                gameTitle = "Omega Ruby"
-            }
-            
-            if (body.info.move_learnsets[index].games[0] == gameTitle) {
-                number = index;
-                break;
-            }
         }
 
         var tmList = new Array();
@@ -50,23 +33,23 @@ exports.run = (client, message, args) => {
 
         const hmList = new Array();
 
-        for (let index = 0; index < body.info.move_learnsets[number].learnset.length; index++) {
-            if (body.info.move_learnsets[number].learnset[index].tm != null) {
+        for (let index = 0; index < body.info.move_learnsets[0].tm_learnset.length; index++) {
+            if (body.info.move_learnsets[0].tm_learnset[index].tm != null) {
                 var skip = false;
                 hms.forEach(element => {
-                    if (element.substring(7) == body.info.move_learnsets[number].learnset[index].move) {
+                    if (element.substring(7) == body.info.move_learnsets[0].tm_learnset[index].move) {
                         //skips this iteration, but add it to an hm's list
                         hmList.push(element);
                         skip = true;
                     }
                 });
                 //if it's an hm from 1-7 take it out anyways for sorting
-                if(body.info.move_learnsets[number].learnset[index].tm.charAt(0) == "H"){
-                    hmList.push(body.info.move_learnsets[number].learnset[index].tm + " - " + body.info.move_learnsets[number].learnset[index].move);
+                if(body.info.move_learnsets[0].tm_learnset[index].tm.charAt(0) == "H"){
+                    hmList.push(body.info.move_learnsets[0].tm_learnset[index].tm + " - " + body.info.move_learnsets[0].tm_learnset[index].move);
                     skip = true;
                 }
                 if (!skip) {
-                    tmList.push(body.info.move_learnsets[number].learnset[index].tm + " - " + body.info.move_learnsets[number].learnset[index].move);
+                    tmList.push(body.info.move_learnsets[0].tm_learnset[index].tm + " - " + body.info.move_learnsets[0].tm_learnset[index].move);
                 }
             }
         }

@@ -19,7 +19,7 @@ exports.run = (client, message, params) => {
 
 const embed = new discord.RichEmbed()
   .setTitle(`${searchUser.tag} Information`)
-  .setThumbnail(`${searchUser.avatarURL}`)
+  .setThumbnail(`${searchUser.displayAvatarURL}`)
   .setDescription(`**Created:** ${searchUser.createdAt}\n**Joined:** ${searchMember.joinedAt}`)
   .addField(`User Stats`, `**Status:**\n${searchUser.presence.status}\n\n**ID:**\n${searchUser.id}\n\n**Bot:**\n${searchUser.bot}`, true)
   .addField(`Member Stats`, `**Top Role:**\n${searchMember.highestRole}\n\n**Display Name:**\n${searchMember.displayName}\n\n**Roles:**\n${searchMember.roles.map(r => r.name).join("\n")}`, true)

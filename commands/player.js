@@ -1,48 +1,60 @@
 const {RichEmbed} = require("discord.js");
 const settings = require('../settings.json');
+const sql = require("sqlite");
 exports.run = (client, message, args) => {
-    /*if (!args[0]) {
-       return message.channel.send(`Please input a player's name - use **${settings.prefix}help player** for more info!`);
+
+    if (!args[0]) return message.channel.send(`Use **${settings.prefix}help player** for more info on how to use this command!`);
+
+    if (args[0].toLowerCase() == "add" || args[0].toLowerCase() == "update") {
+        if (args[0].toLowerCase() == "add") {
+            if(!args[1]) return message.channel.send("Please redo the command with your PlayerName and Guild [Optional]")
+            if (!args[2]) {
+                guild = "None"
+            } else {
+                guild = args[2]
+            }
+
+            sql.get(`SELECT * FROM players WHERE userID ="${message.author.id}"`).then(row => {
+                if (!row) {
         
-    }*/
+                    const embed = new RichEmbed()
+                    .setTitle(`${args[1]} || ${guild}`)
+                    .setDescription("more data coming soon!")
+        
+                    sql.run('INSERT INTO players (userID, gamename, guild) VALUES (?, ?, ?)', [message.author.id, args[1], guild]).then(
+                        message.channel.send("this is in Development!\nAdded to Database", {
+                        embed: embed
+                    }).catch(console.error)
+                )
+                } else {
+        
+        
+                    message.channel.send("this is in Development!\nYou have aleady added your data to the Database!").catch(console.error)
+                    }
+        
+                })
+        } else
+        if (args[0].toLowerCase() == "update") {
+            message.channel.send("This feature is not ready yet!")
+        }
+    } else 
+    if (args[0].toLowerCase() !== "add" || args[0].toLowerCase() !== "update") {
 
-    //const search = args.splice(0, args.length).join(" ").toLowerCase()
+    sql.get(`SELECT * FROM players WHERE gamename ="${args[0]}"`).then(row => {
+        if (!row) {
+            message.channel.send("That User is currently not in my Database\nIf this is you, you can add yourself to the database with the !addplayer command")
+        } else {
+            const embed = new RichEmbed()
+            .setTitle(`${row.gamename} || ${row.guild}`)
+            .setDescription("more data coming soon!")
 
-//Badges
-    let kbadge = "0"
-    let jbadge = "8"
-    let ubadge = "0"
+            message.channel.send("this is in Development!", {
+                embed: embed
+            }).catch(console.error)
+            }
 
-//levels
-    let klvl = "5"
-    let jlvl = "52"
-    let ulvl = "0"
-
-//Current Region
-    let playTime = "1 day, 6 hrs, 48mins"
-
-//Pokedex
-    let encount = "297"
-    let seen = "104"
-    let caught = "19"
-    let pbthrow = "10"
-
-    const embed = new RichEmbed()
-    .setTitle(`AussieJohto94 || ${playTime}`)
-    .addField(`Badges`, `**Kanto:** ${kbadge}\n**Johto:** ${jbadge}\n**Unova:** ${ubadge}`, true)
-    .addField(`Player Levels`, `**Kanto:** ${klvl}\n**Johto:** ${jlvl}\n**Unova:** ${ulvl}`, true)
-    .addField(`Pokedex`, `**Ecounters:** ${encount}\n**Seen:** ${seen}\n**Caught:** ${caught}\n**Balls Thrown:** ${pbthrow}`)
-
-    /*IF PLAYER NOT FOUND (404)
-    if (body.status == "404") {
-        return message.channel.send(`Player: ${search} not found. Please double check spelling!`);
-       
-    }*/
-
-    message.channel.send("this is a Placeholder!", {
-        embed: embed
-    }).catch(console.error)
-
+        })
+    }
 };
 
 exports.conf = {

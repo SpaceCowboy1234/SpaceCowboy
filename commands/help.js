@@ -13,7 +13,7 @@ exports.run = (client, message, params) => {
       }
     });
 
-    message.channel.send(`= Command List =\n\n[Use ${settings.prefix}help <commandname> for details]\n\n${commandList.map(c => `${settings.prefix}${c.help.name}${' '.repeat(longest - c.help.name.length)} :: ${c.help.description}`).join('\n')}`, { code: 'asciidoc' });
+    message.channel.send(`= Command List =\n\n[Use ${settings.prefix}help <commandname> for details]\n\n${commandList.map(c => `${settings.prefix}${c.help.name}${' '.repeat(longest - c.help.name.length)} :: ${c.conf.enabled ? `${c.help.description}` : "Disabled"}`).join('\n')}`, { code: 'asciidoc' });
   } else {
     let command = params[0];
     if (client.commands.has(command)) {
