@@ -22,7 +22,7 @@ exports.run = async (client, message, args) => {
         if (body.status == "404") {
             return message.channel.send(`Move: ${search} not found. Please double check spelling!`);
         }
-
+        
         var category = body.info.category.charAt(0).toUpperCase() + body.info.category.slice(1);
         var power = body.info.power;
         var acc = body.info.accuracy;

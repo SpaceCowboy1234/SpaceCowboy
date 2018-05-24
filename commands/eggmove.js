@@ -22,6 +22,24 @@ exports.run = (client, message, args) => {
             return message.channel.send(`Pokemon: ${search} not found. Please double check spelling!`);
         }
 
+        var image;
+        if (body.info.custom_image) {
+            image = body.info.custom_image;
+        } else {
+            if (body.info.national_id < 10) {
+                image = `http://api.gamernationnetwork.xyz/pokemon/poke/00${body.info.national_id}.gif`;
+            }
+            if (body.info.national_id >= 10 & body.info.national_id < 100) {
+                image = `http://api.gamernationnetwork.xyz/pokemon/poke/0${body.info.national_id}.gif`;
+            } else 
+            if (body.info.national_id >= 100 & body.info.national_id <= 721){
+                image = `http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.gif`;
+            } else
+            if (body.info.national_id >= 722) {
+                image = `http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`;
+            }
+        }
+
         let number = 0;
 
         for (let index = 0; index < 16; index++) {
@@ -45,7 +63,7 @@ exports.run = (client, message, args) => {
             .setTitle(`#${body.info.national_id} || ${body.info.names.en} || ${body.info.types.join('/')}`)
             .setColor(0x0000C8)
             .addField("Egg Move List", array, true)
-            .setThumbnail(`http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`)
+            .setThumbnail(image)
 
         message.channel.send("", {
             embed: embed

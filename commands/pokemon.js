@@ -152,7 +152,18 @@ exports.run = async (client, message, args) => {
         if (body.info.custom_image) {
             image = body.info.custom_image;
         } else {
-            image = `http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`;
+            if (body.info.national_id < 10) {
+                image = `http://api.gamernationnetwork.xyz/pokemon/poke/00${body.info.national_id}.gif`;
+            }
+            if (body.info.national_id >= 10 & body.info.national_id < 100) {
+                image = `http://api.gamernationnetwork.xyz/pokemon/poke/0${body.info.national_id}.gif`;
+            } else 
+            if (body.info.national_id >= 100 & body.info.national_id <= 721){
+                image = `http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.gif`;
+            } else
+            if (body.info.national_id >= 722) {
+                image = `http://api.gamernationnetwork.xyz/pokemon/poke/${body.info.national_id}.png`;
+            }
         }
 
         var eggGroup = body.info.egg_groups;
